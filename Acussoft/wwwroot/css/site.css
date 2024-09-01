@@ -1,0 +1,52 @@
+:root {
+    --main-fg-color: #f42c6c;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    height: 100vh;
+}
+
+body {
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    background-color: #f3f3f3;
+}
+
+.left-nav {
+    background-color: var(--main-fg-color);
+}
+
+    .left-nav a.nav-link.active {
+        color: var(--main-fg-color);
+        background-color: white;
+        border-radius: 20px 0px 0px 20px;
+    }
+
+.user-role {
+    color: #9ea1a0;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+#dropdownUser2::after {
+    display: none;
+}
+
+a:hover {
+    filter: opacity(0.8);
+}

@@ -1,0 +1,44 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h2>Lista de Notas Fiscais</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Identificação</th>
+                <th>Credor</th>
+                <th>Data de Emissão</th>
+                <th>Valor</th>
+                <th>Status</th>
+                <th>Documentos</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var nota in Model.NotasEmitidas)
+            {
+                <tr>
+                    <td>@nota.NumeroIdentificacao</td>
+                    <td>@nota.Credor!.Nome</td>
+                    <td>@nota.DataEmissao.ToShortDateString()</td>
+                    <td>@nota.Valor.ToString("C")</td>
+                    <td>@nota.StatusNota!.Descricao</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(nota.DocumentoNotaFiscal))
+                        {
+                            <a href="@nota.DocumentoNotaFiscal">Nota Fiscal</a>
+                        }
+                        @if (!string.IsNullOrEmpty(nota.DocumentoBoleto))
+                        {
+                            <a href="@nota.DocumentoBoleto">Boleto</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
